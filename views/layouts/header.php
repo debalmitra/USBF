@@ -15,7 +15,12 @@
             'UTF-8'
         ) ?>
     </title>
+<?php
+use Core\Helper;
 
+$assetPath = $assetPath ?? Helper::assetPath();
+
+?>
     <link rel="icon"
           href="./assets/images/favicon/favicon.ico"
           type="image/x-icon">

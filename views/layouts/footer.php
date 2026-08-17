@@ -1,3 +1,9 @@
+<?php
+use Core\Helper;
+
+$assetPath = $assetPath ?? Helper::assetPath();
+
+?>
 <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <script type="module"
