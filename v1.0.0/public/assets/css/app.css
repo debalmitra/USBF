@@ -1,0 +1,436 @@
+/* ==================================================
+   Application Preloader
+================================================== */
+
+#appPreloader {
+  position: fixed;
+  inset: 0;
+
+  z-index: 10000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--bs-body-bg);
+}
+
+#appPreloader.is-hidden {
+  pointer-events: none;
+}
+/* ==================================================
+   Framework Header
+================================================== */
+
+.framework-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 1030;
+
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 24px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.framework-guide-btn,
+.framework-theme-btn {
+  min-height: 42px;
+}
+
+.framework-theme-btn {
+  width: 42px;
+  padding: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dark mode */
+
+[data-bs-theme="dark"] .framework-header {
+  background: rgba(20, 20, 20, 0.92);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ==================================================
+   Framework Guide Menu
+================================================== */
+
+.framework-guide-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.framework-guide-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px 12px;
+
+  border-radius: 8px;
+
+  color: inherit;
+  text-decoration: none;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.framework-guide-menu a:hover {
+  background-color: rgba(var(--bs-primary-rgb), 0.1);
+  transform: translateX(3px);
+}
+
+.framework-guide-menu a i {
+  width: 20px;
+  text-align: center;
+  color: var(--bs-primary);
+}
+
+/* ==================================================
+   Framework Documentation
+================================================== */
+
+.framework-doc-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  scroll-margin-top: 90px;
+}
+
+.framework-doc-section + .framework-doc-section {
+  border-top: 1px solid rgba(128, 128, 128, 0.15);
+}
+
+.framework-doc-section h1,
+.framework-doc-section h2 {
+  font-weight: 700;
+}
+
+.framework-doc-section h2 {
+  margin-bottom: 1.25rem;
+}
+
+.framework-doc-section p {
+  line-height: 1.7;
+}
+
+.framework-doc-section pre {
+  overflow-x: auto;
+
+  padding: 1.25rem;
+
+  border-radius: 10px;
+}
+
+.framework-doc-section code {
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------
+   Documentation Code Blocks
+-------------------------------------------------- */
+
+.framework-doc-section pre {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+
+  overflow-x: auto;
+
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
+  font-size: 0.9rem;
+  line-height: 1.6;
+
+  white-space: pre;
+}
+
+.framework-doc-section pre code {
+  padding: 0;
+
+  background: transparent;
+  color: inherit;
+
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Inline code */
+
+.framework-doc-section :not(pre) > code {
+  padding: 0.15rem 0.35rem;
+
+  border-radius: 4px;
+
+  background-color: rgba(var(--bs-primary-rgb), 0.08);
+  color: var(--bs-primary);
+
+  font-size: 0.9em;
+}
+
+/* Mobile */
+
+@media (max-width: 576px) {
+  .framework-doc-section pre {
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+
+    padding: 0.9rem;
+
+    font-size: 0.82rem;
+  }
+}
+/* ==================================================
+   Framework Welcome Page
+================================================== */
+
+.welcome-hero {
+  padding-top: 3rem !important;
+  padding-bottom: 4rem !important;
+}
+
+.welcome-title {
+  line-height: 1.1;
+}
+
+.welcome-subtitle {
+  max-width: 850px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.welcome-buttons .btn {
+  min-height: 48px;
+}
+
+/* ==================================================
+   Theme / Background
+================================================== */
+
+:root {
+  --app-body-bg: #f4f6f8;
+}
+
+[data-bs-theme="light"] {
+  --bs-body-bg: var(--app-body-bg);
+}
+
+[data-bs-theme="dark"] {
+  --bs-body-bg: #000000;
+}
+
+/* ==================================================
+   Shoelace Drawer
+================================================== */
+
+/*
+ * Framework drawers must remain above all
+ * application content.
+ */
+
+sl-drawer {
+  z-index: 9999;
+
+  --sl-z-index-drawer: 9999;
+}
+
+/* Light mode */
+
+sl-drawer::part(panel) {
+  background-color: #ffffff;
+  border-right: 1px solid #e9ecef;
+}
+
+sl-drawer::part(header) {
+  background-color: #f4f6f8;
+  border-bottom: 1px solid #e9ecef;
+}
+
+sl-drawer::part(body) {
+  background-color: #ffffff;
+}
+
+sl-drawer::part(footer) {
+  background-color: #f4f6f8;
+  border-top: 1px solid #e9ecef;
+}
+
+/* Dark mode */
+
+[data-bs-theme="dark"] sl-drawer::part(panel) {
+  background-color: #181b1f;
+  border-right-color: #343a40;
+}
+
+[data-bs-theme="dark"] sl-drawer::part(header) {
+  background-color: #202428;
+  border-bottom-color: #343a40;
+}
+
+[data-bs-theme="dark"] sl-drawer::part(body) {
+  background-color: #181b1f;
+}
+
+[data-bs-theme="dark"] sl-drawer::part(footer) {
+  background-color: #202428;
+  border-top-color: #343a40;
+}
+
+/* ==================================================
+   Table
+================================================== */
+
+.table thead th {
+  background-color: #f1f3f5;
+
+  color: #212529;
+
+  font-weight: 600;
+
+  border-bottom: 1px solid #dee2e6;
+}
+
+[data-bs-theme="dark"] .table thead th {
+  background-color: #2d3238;
+
+  color: #f1f3f5;
+
+  border-bottom-color: #454b52;
+}
+
+/* ==================================================
+   Card System
+================================================== */
+
+:root {
+  --app-card-bg: #ffffff;
+
+  --app-card-border: #e9ecef;
+
+  --app-card-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.06);
+}
+
+[data-bs-theme="dark"] {
+  --app-card-bg: #25292d;
+
+  --app-card-border: #343a40;
+
+  --app-card-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
+}
+
+.card {
+  background-color: var(--app-card-bg);
+
+  border: 1px solid var(--app-card-border);
+
+  color: var(--bs-body-color);
+
+  box-shadow: var(--app-card-shadow) !important;
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-1px);
+}
+
+.card-header {
+  background-color: transparent !important;
+
+  border-bottom-color: var(--app-card-border);
+}
+
+.card-footer {
+  background-color: transparent !important;
+
+  border-top-color: var(--app-card-border);
+}
+
+/* ==================================================
+   Responsive
+================================================== */
+
+@media (max-width: 576px) {
+  .framework-header {
+    height: 64px;
+
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .framework-guide-btn {
+    font-size: 0.95rem;
+  }
+
+  .framework-theme-btn {
+    width: 42px;
+  }
+
+  /* Documentation */
+
+  .framework-doc-section {
+    padding-top: 55px;
+    padding-bottom: 55px;
+
+    scroll-margin-top: 75px;
+  }
+
+  /* Welcome */
+
+  .welcome-hero {
+    padding-top: 5rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .welcome-title {
+    font-size: 2.35rem;
+    line-height: 1.15;
+  }
+
+  .welcome-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+
+    padding: 0 0.75rem;
+  }
+
+  .welcome-buttons {
+    flex-direction: column;
+    align-items: stretch;
+
+    padding: 0 0.75rem;
+  }
+
+  .welcome-buttons .btn {
+    width: 100%;
+  }
+}

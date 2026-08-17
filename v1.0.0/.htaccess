@@ -1,0 +1,66 @@
+# ==================================================
+
+# Usoftech Framework
+
+# Root Security & Public Entry Point
+
+# ==================================================
+
+Options -Indexes
+
+RewriteEngine On
+
+# --------------------------------------------------
+
+# Deny sensitive files
+
+# --------------------------------------------------
+
+<FilesMatch "^(\.env|\.env\..\*|composer\.(json|lock)|README\.md|LICENSE|THIRD-PARTY-LICENSES)$">
+Require all denied
+</FilesMatch>
+
+# --------------------------------------------------
+
+# Deny hidden files
+
+# --------------------------------------------------
+
+<FilesMatch "^\.">
+Require all denied
+</FilesMatch>
+
+# --------------------------------------------------
+
+# Deny internal directories
+
+# --------------------------------------------------
+
+RewriteRule ^(core|vendor|storage|config|views)(/|$) - [F,L]
+
+# --------------------------------------------------
+
+# Public entry point
+
+# --------------------------------------------------
+
+# Project root
+
+# /v1.0.0/
+
+# ↓
+
+# /v1.0.0/public/
+
+RewriteRule ^$ public/ [L]
+
+# --------------------------------------------------
+
+# Send all application requests to public/
+
+# --------------------------------------------------
+
+# Do not rewrite requests that are already inside public/
+
+RewriteCond %{REQUEST_URI} !/public/
+RewriteRule ^(.+)$ public/$1 [L]

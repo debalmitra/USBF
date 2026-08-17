@@ -1,0 +1,19 @@
+{
+  "name": "app/light-php-core",
+  "description": "A deliberately small PHP framework foundation with secure defaults.",
+  "type": "project",
+  "require": {
+    "php": "^8.2",
+    "catfan/medoo": "^2.2",
+    "league/commonmark": "^2.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "Core\\": "core/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true
+  }
+}

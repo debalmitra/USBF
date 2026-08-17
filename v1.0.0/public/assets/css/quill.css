@@ -1,0 +1,184 @@
+.quill-editor {
+  min-height: 250px;
+}
+
+.quill-editor .ql-editor {
+  min-height: 250px;
+}
+
+/* =========================================================
+   QUILL EDITOR
+   LIGHT MODE
+   ========================================================= */
+
+:root {
+  --ui-quill-toolbar-bg: #f8f9fa;
+  --ui-quill-editor-bg: #ffffff;
+  --ui-quill-border: #dee2e6;
+  --ui-quill-text: #212529;
+  --ui-quill-icon: #495057;
+  --ui-quill-placeholder: #6c757d;
+  --ui-quill-dropdown-bg: #ffffff;
+  --ui-quill-hover: #212529;
+  --ui-quill-active: #0d6efd;
+  --ui-quill-link: #0d6efd;
+  --ui-quill-selection: rgba(13, 110, 253, 0.2);
+}
+
+/* =========================================================
+   QUILL EDITOR
+   DARK MODE
+   ========================================================= */
+
+[data-bs-theme="dark"] {
+  --ui-quill-toolbar-bg: #1f2329;
+  --ui-quill-editor-bg: #181b20;
+  --ui-quill-border: #3a4048;
+  --ui-quill-text: #e6e9ed;
+  --ui-quill-icon: #c8ced6;
+  --ui-quill-placeholder: #7f8792;
+  --ui-quill-dropdown-bg: #242930;
+  --ui-quill-hover: #ffffff;
+  --ui-quill-active: #58a6ff;
+  --ui-quill-link: #58a6ff;
+  --ui-quill-selection: rgba(88, 166, 255, 0.3);
+}
+
+/* =========================================================
+   TOOLBAR
+   ========================================================= */
+
+.ql-toolbar.ql-snow {
+  background: var(--ui-quill-toolbar-bg);
+
+  border: 1px solid var(--ui-quill-border);
+
+  border-bottom: 0;
+
+  border-radius: 6px 6px 0 0;
+}
+
+/* =========================================================
+   EDITOR CONTAINER
+   ========================================================= */
+
+.ql-container.ql-snow {
+  background: var(--ui-quill-editor-bg);
+
+  border: 1px solid var(--ui-quill-border);
+
+  border-radius: 0 0 6px 6px;
+}
+
+/* =========================================================
+   EDITOR TEXT
+   ========================================================= */
+
+.ql-editor {
+  min-height: 280px;
+
+  color: var(--ui-quill-text);
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   PLACEHOLDER
+   ========================================================= */
+
+.ql-editor.ql-blank::before {
+  color: var(--ui-quill-placeholder);
+
+  font-style: normal;
+}
+
+/* =========================================================
+   TOOLBAR ICONS
+   ========================================================= */
+
+.ql-snow .ql-stroke {
+  stroke: var(--ui-quill-icon);
+}
+
+.ql-snow .ql-fill {
+  fill: var(--ui-quill-icon);
+}
+
+/* =========================================================
+   PICKER
+   ========================================================= */
+
+.ql-snow .ql-picker {
+  color: var(--ui-quill-text);
+}
+
+.ql-snow .ql-picker-label {
+  color: var(--ui-quill-text);
+}
+
+/* =========================================================
+   DROPDOWN
+   ========================================================= */
+
+.ql-snow .ql-picker-options {
+  background: var(--ui-quill-dropdown-bg);
+
+  border: 1px solid var(--ui-quill-border);
+}
+
+.ql-snow .ql-picker-item {
+  color: var(--ui-quill-text);
+}
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.ql-snow .ql-toolbar button:hover,
+.ql-snow .ql-toolbar button:focus {
+  color: var(--ui-quill-hover);
+}
+
+.ql-snow .ql-toolbar button:hover .ql-stroke,
+.ql-snow .ql-toolbar button:focus .ql-stroke {
+  stroke: var(--ui-quill-hover);
+}
+
+.ql-snow .ql-toolbar button:hover .ql-fill,
+.ql-snow .ql-toolbar button:focus .ql-fill {
+  fill: var(--ui-quill-hover);
+}
+
+/* =========================================================
+   ACTIVE BUTTON
+   ========================================================= */
+
+.ql-snow .ql-toolbar button.ql-active {
+  color: var(--ui-quill-active);
+}
+
+.ql-snow .ql-toolbar button.ql-active .ql-stroke {
+  stroke: var(--ui-quill-active);
+}
+
+.ql-snow .ql-toolbar button.ql-active .ql-fill {
+  fill: var(--ui-quill-active);
+}
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+.ql-editor a {
+  color: var(--ui-quill-link);
+}
+
+/* =========================================================
+   TEXT SELECTION
+   ========================================================= */
+
+.ql-editor ::selection {
+  background: var(--ui-quill-selection);
+}
